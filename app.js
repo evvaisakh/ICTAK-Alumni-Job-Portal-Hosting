@@ -3,9 +3,9 @@ const app = new express();
 const logger = require('morgan');
 const cors = require('cors');
 const api = require('./routes/api');
-const connectDB = require('./middlewares/db');
 const path = require('path');
-const PORT = process.env.PORT;
+const PORT = 3000;
+const db = require("./middlewares/db");
 
 
 app.use(logger('dev'));
@@ -27,6 +27,5 @@ app.get('*', async(req, res)=>{
 });
 
 app.listen(PORT, ()=>{
-    connectDB();
     console.log(`Server running on port ${PORT}`);
 });

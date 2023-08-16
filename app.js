@@ -19,12 +19,12 @@ app.get('/download/:resume',(req,res)=>{
     res.sendFile(path.join(__dirname,`./uploads/${req.params.resume}`));
 });
 
-app.use(express.static('./Backend/frontend'));
-app.use(express.static(path.join(__dirname,'frontend')));
+app.use(express.static('./dist/frontend'));
+
 
 // last route
 app.get('*', async(req, res)=>{
-    res.sendFile(path.join(__dirname ,'frontend','index.html'))
+    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
 });
 
 app.listen(PORT, ()=>{

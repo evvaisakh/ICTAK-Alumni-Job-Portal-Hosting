@@ -19,6 +19,7 @@ app.get('/download/:resume',(req,res)=>{
     res.sendFile(path.join(__dirname,`./uploads/${req.params.resume}`));
 });
 
+app.use(express.static('./Backend/frontend'));
 app.use(express.static(path.join(__dirname,'frontend')));
 
 // last route
